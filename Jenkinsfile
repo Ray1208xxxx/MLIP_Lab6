@@ -21,11 +21,7 @@ pipeline {
                 # Activate the conda environment and run pytest
                 /home/team02/miniconda3/condabin/conda run -n mlip pytest
 
-                # Exit with 1 for failure if pytest fails
-                if [ $? -ne 0 ]; then
-                  exit 1
-                fi
-                '''
+                
             }
         }
         stage('Deploy') {
