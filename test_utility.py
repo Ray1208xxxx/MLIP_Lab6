@@ -35,7 +35,20 @@ def feature_target_sample(housing_data_sample):
     feature_df, target_series = data_preparation(housing_data_sample)
     return (feature_df, target_series)
 
+
 def test_data_split(feature_target_sample):
     return_tuple = data_split(*feature_target_sample)
-    # TODO test if the length of return_tuple is 4
-    raise NotImplemented
+
+    # Test if the length of return_tuple is 4
+    assert len(return_tuple) == 4
+
+    # Check if the splits are DataFrame and Series objects
+    assert isinstance(return_tuple[0], pd.DataFrame)  # Training features
+    assert isinstance(return_tuple[1], pd.DataFrame)  # Test features
+    assert isinstance(return_tuple[2], pd.Series)  # Training target
+    assert isinstance(return_tuple[3], pd.Series)  # Test target
+
+    # Optional: Check if the sizes of the splits are correct (e.g., 70-30 split)
+    total_rows = feature_target_sample[0].shape[0]
+    assert return_tuple[0].shape[0] + return_tuple[1].shape[0] == total_rows
+    assert return_tuple[2].shape[0] + return_tuple[3].shape[0] == total_rows
