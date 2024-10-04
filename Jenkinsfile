@@ -16,10 +16,10 @@ pipeline {
                 echo 'Test Step: Running pytest using conda environment'
 
                 # Initialize conda environment (replace PATH with your actual conda path)
-                /home/team02/miniconda3/condabin/conda init bash
+                sudo /home/team02/miniconda3/condabin/conda init bash
 
                 # Activate the conda environment and run pytest
-                /home/team02/miniconda3/condabin/conda run -n mlip pytest
+                sudo /home/team02/miniconda3/condabin/conda run -n mlip pytest
                 '''
             }
         }
