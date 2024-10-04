@@ -20,8 +20,7 @@ pipeline {
 
                 # Activate the conda environment and run pytest
                 /home/team02/miniconda3/condabin/conda run -n mlip pytest
-
-                
+                '''
             }
         }
         stage('Deploy') {
